@@ -4,9 +4,23 @@
   "description": "dotlang is a file parser for .lang files",
   "main": "lib/main.js",
   "types": "types",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": {
+    "name": "Nobu",
+    "discord": "Nobu#1122"
   },
-  "author": "",
-  "license": "AGPL-3.0-or-later"
+  "license": "AGPL-3.0-or-later",
+  "keywords": [
+    "dotlang",
+    ".lang",
+    "yua",
+    "cherryblossomtavern"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CherryBlossomTavern/dotlang.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CherryBlossomTavern/dotlang/issues"
+  },
+  "homepage": "https://github.com/CherryBlossomTavern/dotlang#readme"
 }
