@@ -13,16 +13,16 @@ npm i dotlang
 ```js
 const dotlang = require('dotlang')
 
-const single = dotlang.parse('./path/to/dotlang/file.lang')
+const single = dotlang.parse('path/to/dotlang/file.lang')
 console.log(single)
 
 const multiple = dotlang.parseMultiple([
-  './path/to/dotlang/file.lang',
-  './path/to/another/dotlang/file.lang'
+  'path/to/dotlang/file.lang',
+  'path/to/another/dotlang/file.lang'
 ])
 console.log(multiple)
 
-const dir = dotlang.parseAllInDir('./path/to/dir')
+const dir = dotlang.parseAllInDir('path/to/dir')
 console.log(dir)
 ```
 ### Functions
