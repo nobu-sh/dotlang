@@ -7,3 +7,4 @@ test=no splits parse me
 test.space = there is a space
 test.alotOfSpace    =      beans
 test.insertions = Insertion goes %s
+test.lineBreak = this \n is a \n line break
