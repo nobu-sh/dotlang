@@ -80,7 +80,7 @@ dotlang.meta.description = Pretty Quickly thrown together lib probably has issue
 
 ## Extra
 
-If you would like your .lang files to be colorized try using our extension [dotlang-colorizer](https://marketplace.visualstudio.com/items?itemName=Nobuwu.dotlang-colorizer)
+If you would like your .lang files to be colorized try using our extension [dotlang](https://marketplace.visualstudio.com/items?itemName=Nobuwu.dotlang)
 
 Also something to note, keys are not required to be concatenated with dots
 eg: `dotlang-weird=lel` will work too. I just prefer dots :)
