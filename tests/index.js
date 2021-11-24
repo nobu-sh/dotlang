@@ -1,7 +1,7 @@
 const {
   parse,
   parseMultiple,
-  parseAllInDir,
+  parseDir,
   replaceTemplates,
 } = require('../lib/main')
 
