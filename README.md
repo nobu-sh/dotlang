@@ -39,45 +39,46 @@ console.log(parsedFile) // Map(int) => { 'key' => 'value' }
 ## Methods
 
 ### parse(`path: string`): `Map<string, string>`
+parses dotlang file and returns a map fo keys values.
+
 |Parameters|Type|Description|
 |:--- |:--- |:--- |
 |`path`|`string`|Path to .lang file|
-
-> parses dotlang file and returns a map fo keys values.
 
 ```js
 const parsed = dotlang.parse("path/to/file.lang")
 console.log(parsed) // Map(int) => { 'fileName' => Map(int) { 'key' => 'value' } }
 ```
+
 ### parseMultiple(`paths: string[]`): `Map<string, Map<string, string>>`
+Parses multiple dotlang files and returns a map of file names with their corresponding keys/values
+
 |Parameters|Type|Description|
 |:--- |:--- |:--- |
 |`path`|`string[]`|Array of .lang file paths|
-
-> Parses multiple dotlang files and returns a map of file names with their corresponding keys/values
 
 ```js
 const parsed = dotlang.parseMultiple(["path/to/file.lang", "path/to/anotherFile.lang"])
 console.log(parsed) // Map(int) => { 'fileName' => Map(int) { 'key' => 'value' } }
 ```
-### parseMultiple(`dir: string`): `Map<string, Map<string, string>>`
+### parseDir(`dir: string`): `Map<string, Map<string, string>>`
+Finds all lang files in specified dir and returns a map of file names with their corresponding keys/values
+
 |Parameters|Type|Description|
 |:--- |:--- |:--- |
 |`dir`|`string`|Path to directory|
-
-> Finds all lang files in specified dir and returns a map of file names with their corresponding keys/values
 
 ```js
 const parsed = dotlang.parseDir("/path/to/dir")
 console.log(parsed)
 ```
 ### replaceTemplates(`orig: string, ...replacements: any[]`): `string`
+Replaces templates in given string and return new string
+
 |Parameters|Type|Description|
 |:--- |:--- |:--- |
 |`orig`|`string`|Orignal string with *%s* templates|
 |`...replacements`|`any[]`|List of replacements|
-
-> Replaces templates in given string and return new string
 
 ```js
 const str = "Hi my name is %s and I like %s"
