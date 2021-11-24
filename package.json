@@ -1,6 +1,6 @@
 {
   "name": "dotlang",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "dotlang is a file parser for .lang files",
   "main": "lib/main.js",
   "types": "types",
