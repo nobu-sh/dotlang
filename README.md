@@ -1,89 +1,89 @@
 # Dotlang
 
-Dotlang is the official library yua uses to parse the .lang translation files and utilize them
+Dotlang is a simple library for easily parsing and reading `.lang` files.
 
 ## Installation
 
-```npm
-npm i dotlang
+```
+$ npm i dotlang
 ```
 
 ## Usage
 
+See the [methods](#methods) for more usage info.
+
+### Reading A File
 ```js
 const dotlang = require('dotlang')
 
-const single = dotlang.parse('path/to/dotlang/file.lang')
-console.log(single)
-
-const multiple = dotlang.parseMultiple([
-  'path/to/dotlang/file.lang',
-  'path/to/another/dotlang/file.lang'
-])
-console.log(multiple)
-
-const dir = dotlang.parseAllInDir('path/to/dir')
-console.log(dir)
+const parsedFile = dotlang.parse("path/to/file.lang")
+console.log(parsedFile)
 ```
-### Functions
-#### `parse(path)` `Map<string, string>`
+
+### Reading Multiple Files
+```js
+const dotlang = require('dotlang')
+
+const parsedFile = dotlang.parseMultiple(["path/to/file.lang", "path/to/anotherFile.lang"])
+console.log(parsedFile)
+```
+
+### Reading Entire Directory
+```js
+const dotlang = require('dotlang')
+
+const parsedFile = dotlang.parseDir("path/to/dir")
+console.log(parsedFile) // Map(int) => { 'key' => 'value' }
+```
+
+## Methods
+
+### parse(`path: string`): `Map<string, string>`
 |Parameters|Type|Description|
-|:---      |:---|:---       |
+|:--- |:--- |:--- |
 |`path`|`string`|Path to .lang file|
-> *Parse lang file and return map*
 
+> parses dotlang file and returns a map fo keys values.
 
-#### `parseMultiple(paths)` `Map<string, Map<string, string>>`
+```js
+const parsed = dotlang.parse("path/to/file.lang")
+console.log(parsed) // Map(int) => { 'fileName' => Map(int) { 'key' => 'value' } }
+```
+### parseMultiple(`paths: string[]`): `Map<string, Map<string, string>>`
 |Parameters|Type|Description|
-|:---      |:---|:---       |
-|`paths`|`string[]`|Array of .lang file paths|
+|:--- |:--- |:--- |
+|`path`|`string[]`|Array of .lang file paths|
 
-> *Parse multiple lang files and return map*
+> Parses multiple dotlang files and returns a map of file names with their corresponding keys/values
 
-#### `parseAllInDir(dir)` `Map<string, Map<string, string>>`
+```js
+const parsed = dotlang.parseMultiple(["path/to/file.lang", "path/to/anotherFile.lang"])
+console.log(parsed) // Map(int) => { 'fileName' => Map(int) { 'key' => 'value' } }
+```
+### parseMultiple(`dir: string`): `Map<string, Map<string, string>>`
 |Parameters|Type|Description|
-|:---      |:---|:---       |
+|:--- |:--- |:--- |
 |`dir`|`string`|Path to directory|
- 
-> *Finds all lang files in a directory and parses them*
 
-### Returns
+> Finds all lang files in specified dir and returns a map of file names with their corresponding keys/values
 
-#### `Map<string, string>`
+```js
+const parsed = dotlang.parseDir("/path/to/dir")
+console.log(parsed)
 ```
-Map(int) {
-  'key' => 'value'
-}
+### replaceTemplates(`orig: string, ...replacements: any[]`): `string`
+|Parameters|Type|Description|
+|:--- |:--- |:--- |
+|`orig`|`string`|Orignal string with *%s* templates|
+|`...replacements`|`any[]`|List of replacements|
+
+> Replaces templates in given string and return new string
+
+```js
+const str = "Hi my name is %s and I like %s"
+const newStr = dotlang.replaceTemplates(str, "Nobu", "pizza")
+console.log(newStr) // Hi my name is Nobu and I like pizza
 ```
-
-#### `Map<string, Map<string, string>>`
-```
-Map(int) {
-  'fileName' => Map(int) {
-     'key' => 'value'
-  }
-}
-```
-## Dotlang File
-
-#### `en_US.lang`
-```lang
-# Parser Will Ignore comments, use hashtag to comment
-
-dotlang.hello=Hi, I am grateful you found dis lib :)
-dotlang.abnormal   =   Spaces Will Not Affect Parser
-
-# Extra
-dotlang.meta.description = Pretty Quickly thrown together lib probably has issues
-
-```
-
-## Extra
-
-If you would like your .lang files to be colorized try using our extension [dotlang](https://marketplace.visualstudio.com/items?itemName=Nobuwu.dotlang)
-
-Also something to note, keys are not required to be concatenated with dots
-eg: `dotlang-weird=lel` will work too. I just prefer dots :)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

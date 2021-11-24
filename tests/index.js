@@ -1,4 +1,9 @@
-const { parse, parseMultiple, parseAllInDir } = require('../lib/main')
+const {
+  parse,
+  parseMultiple,
+  parseAllInDir,
+  replaceTemplates,
+} = require('../lib/main')
 
 console.log("--- Single Parse ---")
 const map = parse('tests/lang/en_US.lang')
@@ -9,5 +14,10 @@ const multiple = parseMultiple([ 'tests/lang/en_US.lang', 'tests/lang/en_ES.lang
 console.log(multiple)
 
 console.log("--- All Parse ---")
-const dir = parseAllInDir('tests/')
+const dir = parseDir('tests/')
 console.log(dir)
+
+console.log("--- Replacing Templates ---")
+const insertion = map.get("test.insertions")
+const newValue = replaceTemplates(insertion, "Nobu", "pizza")
+console.log(newValue)

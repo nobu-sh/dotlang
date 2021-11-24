@@ -6,6 +6,6 @@ test.noncommentwithhashs=##parse # me  ##
 test=no splits parse me
 test.space = there is a space
 test.alotOfSpace    =      beans
-test.insertions = Insertion goes %s
+test.insertions = Hi my name is %s and I like %s
 test.lineBreak = this \n is a \n line break
 test.parsingsigns = = = multiple equal = signs = = =
