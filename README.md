@@ -8,6 +8,8 @@ Dotlang is a simple library for easily parsing and reading `.lang` files.
 $ npm i dotlang
 ```
 
+For VsCode Color Tokenization Check Out [dotlang](https://marketplace.visualstudio.com/items?itemName=Nobuwu.dotlang) on the vscode marketplace.
+
 ## Usage
 
 See the [methods](#methods) for more usage info.
